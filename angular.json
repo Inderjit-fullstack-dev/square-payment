@@ -1,0 +1,39 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "square-payment": {
+      "projectType": "library",
+      "root": "projects/square-payment",
+      "sourceRoot": "projects/square-payment/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/square-payment/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/square-payment/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/square-payment/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/square-payment/src/test.ts",
+            "tsConfig": "projects/square-payment/tsconfig.spec.json",
+            "karmaConfig": "projects/square-payment/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "square-payment"
+}
