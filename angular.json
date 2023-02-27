@@ -12,7 +12,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/square-payment/ng-package.json"
+            "project": "projects/square-payment/ng-package.json",
+            "scripts": [
+              "./node_modules/@square/web-sdk@1.2.0/dist/square-payment-form.js"
+            ]
           },
           "configurations": {
             "production": {
